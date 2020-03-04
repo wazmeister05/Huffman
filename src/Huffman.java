@@ -28,7 +28,15 @@ public class Huffman {
         String text = "Batman";
         int n = text.length();
         char[] charArray = text.toCharArray();
-        int[] charFreq = {1,2,1,1,2,1};         //Bx1 Ax2 Tx1 Mx1 Ax2 Nx1
+
+        int countB = n - text.replace("B", "").length();
+        int countA = n - text.replace("a", "").length();
+        int countT = n - text.replace("t", "").length();
+        int countM = n - text.replace("m", "").length();
+        int countN = n - text.replace("n", "").length();
+
+
+        int[] charFreq = {countB, countA, countT, countM, countA, countN};         //Bx1 Ax2 Tx1 Mx1 Ax2 Nx1
 
         PriorityQueue<HuffmanNode> queue = new PriorityQueue<>(n, new MyComparator());
 
